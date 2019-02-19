@@ -25,7 +25,6 @@ export const Header = ({title}) => {
 
     return (
         <Div>
-            <Title>{title}</Title>
             <NavBar pages={pages} />
         </Div>
     )

@@ -2,8 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
+`
+
+const Li = styled.li`
+    display: inline-block;  
+    height: 100%;
 `
 
 const NavItem = styled.a`
@@ -15,10 +20,13 @@ const NavItem = styled.a`
 
 export const NavBar = ({pages}) => 
     <Nav>
-        {pages.map((page, i) => 
-            <div>
-                <NavItem key={i} href={page.href}>{page.name}</NavItem>
-                { i === pages.length-1 ? '' : '|' }
-            </div>
-        )}
+        <Li>
+            <b><NavItem href="/">Faker news</NavItem></b>
+        </Li>
+        <Li>
+            <NavItem href="/new">new</NavItem> |
+        </Li>
+        <Li>
+            <NavItem href="/submit">submit</NavItem>
+        </Li>
     </Nav>
