@@ -7,7 +7,7 @@ const Div = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 80vw;
+    width: 100%;
     min-height: 28px;
     background-color: #f60;
 
