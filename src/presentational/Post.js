@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SecondaryText } from './SecondaryText';
 
 const Container = styled.div`
-    height: 10vh;
-    min-height: 36px;
-    background: #988;
-    border-top: solid black 1px;
-    border-bottom: solid black 1px;
+    width: 100%;
+    background: #eee;
+    padding: 5px;
 `
 
-export const Post = ({link, description}) => 
-    <div>
-        <a href={link}>
+const Link = styled.a`
+    text-decoration: none;
+    color: black;
+`
+
+export const Post = ({ordinal, link, description}) => 
+    <Container>
+        <SecondaryText>{ordinal}. </SecondaryText>
+        <Link href={link}>
             {description}
-        </a>
-    </div>
+        </Link>
+    </Container>
