@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
+import gql from 'graphql-tag';
+import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
+
+const POST_MUTATION = gql`
+    mutation PostMutation($description: String!, $url: String!) {
+        post(description: $description, url: $url) {
+            id
+            createdAt
+            url
+            description
+        }
+    }
+`
 
 const Container = styled.div`
     background: #eee;
@@ -17,7 +30,7 @@ const Submit = styled.button`
 `
 
 export const SubmitLink = () => {
-    const [link, setLink] = useState({href: '', description: ''});
+    const [link, setLink] = useState({ url: '', description: '' });
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
@@ -32,13 +45,21 @@ export const SubmitLink = () => {
 
     return (
         <Container>
-            <form autoComplete="off" onSubmit={formSubmitHandler} onChange={changeHandler}>
-                <label htmlFor="description">Description</label><br/>
-                <TextField name="description" type="text" /><br/>
-                <label htmlFor="href">Link</label><br/>
-                <TextField name="href" type="text" /><br/>
-                <Submit type="submit">Submit</Submit><br/>
-            </form>
+            <Mutation mutation={POST_MUTATION} variables={link}>
+            {postMutation => 
+                <form autoComplete="off" onSubmit={(e) => {
+                        e.preventDefault();
+                        postMutation({ variables: { link }});
+                    }} 
+                    onChange={changeHandler}>
+                    <label htmlFor="description">Description</label><br />
+                    <TextField name="description" type="text" /><br />
+                    <label htmlFor="url">Link</label><br />
+                    <TextField name="url" type="text" /><br />
+                    <Submit onClick={postMutation}>Submit</Submit>
+                </form>
+            }
+            </Mutation>
         </Container>
     )
 };

@@ -3,7 +3,6 @@ async function feed(parent, args, context) {
     .linksConnection({
       where: {
         OR: [
-          { id: args.id },
           { description_contains: args.filter },
           { url_contains: args.filter },
         ],
@@ -14,7 +13,6 @@ async function feed(parent, args, context) {
   const links = await context.prisma.links({
     where: {
       OR: [
-        { id: args.id },
         { description_contains: args.filter },
         { url_contains: args.filter },
       ],
