@@ -8,11 +8,10 @@ const Div = styled.div`
     flex-direction: row;
     align-items: center;
     width: 100%;
-    min-height: 28px;
+    min-height: 24px;
     background-color: #f60;
 
     @media only screen and (max-width: 768px) {
-        width: 100vw;
         flex-wrap: wrap;
     }
 `

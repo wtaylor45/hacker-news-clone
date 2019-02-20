@@ -11,7 +11,7 @@ const Root = styled.div`
 
 const Container = styled.div`
   height: 100%;
-  width: 80vw;
+  width: 85vw;
   margin: 8px;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,7 @@ const Container = styled.div`
 
   @media only screen and (max-width: 768px) {
       margin: 0px;
+      width: 100vw;
   }
 `
 
