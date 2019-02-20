@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavBar } from './NavBar';
-import { Title } from './Title';
 
 const Div = styled.div`
     display: flex;
@@ -16,15 +15,7 @@ const Div = styled.div`
     }
 `
 
-export const Header = ({title}) => {
-    const pages = [
-        {href: "/new", name: "new"},
-        {href: "/submit", name: "submit"}
-    ];
-
-    return (
-        <Div>
-            <NavBar pages={pages} />
-        </Div>
-    )
-};
+export const Header = () =>
+    <Div>
+        <NavBar />
+    </Div>

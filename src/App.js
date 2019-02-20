@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Header } from './presentational/Header';
 import './App.css';
 import { PostList } from './presentational/PostList';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const Root = styled.div`
   display: grid;
@@ -24,11 +25,13 @@ const Container = styled.div`
 `
 
 const App = () =>
-  <Root>
-    <Container>
-      <Header title="Faker News" />
-      <PostList />
-    </Container>
-  </Root>
+  <Router>
+    <Root>
+      <Container>
+        <Header title="Faker News" />
+        <Route exact path="/(new)?" component={PostList} />
+      </Container>
+    </Root>
+  </Router>
 
 export default App;

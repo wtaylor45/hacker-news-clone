@@ -6,7 +6,7 @@ const Container = styled.div`
     width: 100%;
 `
 
-export const PostList = ({}) => {
+export const PostList = () => {
     const posts = [
         {link: 'https://wtaylor.tech', description: "Check out my website"},
         {link: 'https://wtaylor.tech', description: "Check out MY website"}

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
     display: flex;
@@ -12,7 +13,7 @@ const Li = styled.li`
     height: 100%;
 `
 
-const NavItem = styled.a`
+const NavItem = styled(Link)`
     text-decoration: none;
     color: black;
     padding-left: 5px;
@@ -24,18 +25,18 @@ const LastLi = styled(Li)`
     margin-right: 5px;
 `
 
-export const NavBar = ({pages}) => 
+export const NavBar = () => 
     <Nav>
         <Li>
-            <b><NavItem href="/">Faker News</NavItem></b>
+            <b><NavItem to="/">Faker News</NavItem></b>
         </Li>
         <Li>
-            <NavItem href="/new">new</NavItem> |
+            <NavItem to="/new">new</NavItem> |
         </Li>
         <Li>
-            <NavItem href="/submit">submit</NavItem>
+            <NavItem to="/submit">submit</NavItem>
         </Li>
         <LastLi>
-            <NavItem href="/login">login</NavItem>
+            <NavItem to="/login">login</NavItem>
         </LastLi>
     </Nav>
