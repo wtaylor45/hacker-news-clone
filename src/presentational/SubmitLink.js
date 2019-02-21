@@ -47,10 +47,7 @@ export const SubmitLink = () => {
         <Container>
             <Mutation mutation={POST_MUTATION} variables={link}>
             {postMutation => 
-                <form autoComplete="off" onSubmit={(e) => {
-                        e.preventDefault();
-                        postMutation({ variables: { link }});
-                    }} 
+                <form autoComplete="off" onSubmit={formSubmitHandler}
                     onChange={changeHandler}>
                     <label htmlFor="description">Description</label><br />
                     <TextField name="description" type="text" /><br />

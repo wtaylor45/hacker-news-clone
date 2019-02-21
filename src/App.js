@@ -5,6 +5,7 @@ import './App.css';
 import { PostList } from './presentational/PostList';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { SubmitLink } from './presentational/SubmitLink';
+import { LoginForm } from './presentational/LoginForm';
 
 const Root = styled.div`
   display: grid;
@@ -32,6 +33,7 @@ const App = () =>
         <Header title="Faker News" />
         <Route exact path="/(new)?" component={PostList} />
         <Route exact path="/submit" component={SubmitLink} />
+        <Route exact path="/login" component={LoginForm} />
       </Container>
     </Root>
   </Router>
