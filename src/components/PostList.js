@@ -33,7 +33,8 @@ export const PostList = () => {
 
                     return (
                         <div>
-                            {linksToRender.map((link, i) => <Post key={link.id} ordinal={i} link={link.url} description={link.description} />)}
+                            {linksToRender.map((link, i) => <Post key={link.id} ordinal={i+1} link={link.url} 
+                              description={link.description} linkId={link.id} />)}
                         </div>
                     )
                 }}

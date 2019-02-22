@@ -54,7 +54,7 @@ export const LoginForm = ({history}) => {
                 <input name="email" type="text" /><br/>
                 <label htmlFor="password">Password</label><br/>
                 <input name="password" type="password" /><br/>
-                <Mutation mutation={isLogin? LOGIN_MUTATION : SIGNUP_MUTATION} variables={credentials} onCompleted={loginCompletedHandler}>
+                <Mutation mutation={isLogin ? LOGIN_MUTATION : SIGNUP_MUTATION} variables={credentials} onCompleted={loginCompletedHandler}>
                     {loginMutation => 
                         <button type="submit" onClick={loginMutation}>Submit</button>
                     }
