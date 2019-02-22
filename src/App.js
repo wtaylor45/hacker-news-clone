@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Header } from './presentational/Header';
+import { Header } from './components/Header';
 import './App.css';
-import { PostList } from './presentational/PostList';
+import { PostList } from './components/PostList';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { SubmitLink } from './presentational/SubmitLink';
-import { LoginForm } from './presentational/LoginForm';
+import { SubmitLink } from './components/SubmitLink';
+import { LoginForm } from './components/LoginForm';
 
 const Root = styled.div`
   display: grid;
