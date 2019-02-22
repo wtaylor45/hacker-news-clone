@@ -25,6 +25,12 @@ const Link = styled.a`
     color: black;
 `
 
+const Vote = styled.button`
+    background: none;
+    border: none;
+    cursor: pointer;
+`
+
 export const Post = ({ ordinal, link, description, linkId }) => {
     const authToken = localStorage.getItem('AUTH_TOKEN');
 
@@ -34,7 +40,7 @@ export const Post = ({ ordinal, link, description, linkId }) => {
             { authToken &&
                 <SecondaryText>
                     <Mutation mutation={VOTE_MUTATION} variables={{linkId}}>
-                        {voteMutation => <button onClick={voteMutation}>▲</button>}
+                        {voteMutation => <Vote onClick={voteMutation}>▲</Vote>}
                     </Mutation>
                 </SecondaryText>
             }
