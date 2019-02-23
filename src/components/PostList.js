@@ -12,6 +12,9 @@ const FEED_QUERY = gql`
         createdAt
         url
         description
+        votes {
+          id
+        }
       }
     }
   }
@@ -19,6 +22,11 @@ const FEED_QUERY = gql`
 
 const Container = styled.div`
     width: 100%;
+`
+
+const Grid = styled.div`
+  /* display: grid;
+  grid-template-columns: auto auto auto; */
 `
 
 export const PostList = () => {
@@ -32,10 +40,10 @@ export const PostList = () => {
                     const linksToRender = data.feed.links
 
                     return (
-                        <div>
+                        <Grid>
                             {linksToRender.map((link, i) => <Post key={link.id} ordinal={i+1} link={link.url} 
-                              description={link.description} linkId={link.id} />)}
-                        </div>
+                              description={link.description} linkId={link.id} votes={link.votes.length} />)}
+                        </Grid>
                     )
                 }}
             </Query>

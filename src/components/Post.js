@@ -20,9 +20,20 @@ const Container = styled.div`
     padding: 5px;
 `
 
+const Row = styled.div`
+    display: grid;
+    grid-template-columns: max-content max-content auto;
+    justify-items: start;
+`
+
 const Link = styled.a`
     text-decoration: none;
     color: black;
+`
+
+const Ordinal = styled.div`
+    text-align: right;
+    width: 100%;
 `
 
 const Vote = styled.button`
@@ -31,22 +42,33 @@ const Vote = styled.button`
     cursor: pointer;
 `
 
-export const Post = ({ ordinal, link, description, linkId }) => {
+const SubText = styled.div`
+    font-size: 8px !important;
+`
+
+export const Post = ({ ordinal, link, description, linkId, votes }) => {
     const authToken = localStorage.getItem('AUTH_TOKEN');
 
     return (
         <Container>
-            <SecondaryText>{ordinal}. </SecondaryText>
-            { authToken &&
-                <SecondaryText>
-                    <Mutation mutation={VOTE_MUTATION} variables={{linkId}}>
-                        {voteMutation => <Vote onClick={voteMutation}>▲</Vote>}
+            <Row>
+                <Ordinal><SecondaryText>{ordinal}. </SecondaryText></Ordinal>
+                {authToken &&
+                    <Mutation mutation={VOTE_MUTATION} variables={{ linkId }}>
+                        {voteMutation =>
+                            <Vote onClick={voteMutation}>
+                                <SecondaryText>▲</SecondaryText>
+                            </Vote>
+                        }
                     </Mutation>
-                </SecondaryText>
-            }
-            <Link href={link}>
-                {description}
-            </Link>
+                }
+                <Link href={link}>
+                    {description}
+                </Link>
+            </Row>
+            <Row>
+                <SubText><SecondaryText>{votes} points</SecondaryText></SubText>
+            </Row>
         </Container>
     )
 };
