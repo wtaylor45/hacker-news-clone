@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const Row = styled.div`
     display: grid;
-    grid-template-columns: max-content max-content auto;
+    grid-template-columns: minmax(30px, max-content) minmax(10px, max-content) auto;
     justify-items: start;
 `
 
@@ -40,10 +40,15 @@ const Vote = styled.button`
     background: none;
     border: none;
     cursor: pointer;
+    padding: 3px;
 `
 
 const SubText = styled.div`
     font-size: 8px !important;
+`
+
+const Padding = styled.div`
+    column-span: ${props => props.span};
 `
 
 export const Post = ({ ordinal, link, description, linkId, votes }) => {
@@ -67,6 +72,7 @@ export const Post = ({ ordinal, link, description, linkId, votes }) => {
                 </Link>
             </Row>
             <Row>
+                <Padding span={2}></Padding>
                 <SubText><SecondaryText>{votes} points</SecondaryText></SubText>
             </Row>
         </Container>
